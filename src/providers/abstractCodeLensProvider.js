@@ -71,7 +71,7 @@ export abstract class AbstractCodeLensProvider {
       command: `_${this.appConfig.extentionName}.updateDependencyCommand`,
       arguments: [
         codeLensItem,
-        `"${this.appConfig.versionPrefix}${newerVersion}"`
+        `"${this.appConfig.versionPrefix}${codeLensItem.toVersion(newerVersion)}"`
       ]
     };
     return codeLensItem;

@@ -52,8 +52,11 @@ export function parseDependencyNodes(dependencyNodes, appConfig, customVersionPa
     const node = dependencyNodes[i];
 
     const parsedResult;
-    if (customVersionParser)
+    if (customVersionParser) {
       parsedResult = customVersionParser(node, appConfig);
+      if (parsedResult === undefined)
+        continue;
+    }
     else
       parsedResult = { node };
 

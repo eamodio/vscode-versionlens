@@ -11,6 +11,9 @@ export function generateCodeLenses(packageCollection, document) {
     .then(results => {
       const codeLenses = [];
       results.forEach(entryOrEntries => {
+        if (entryOrEntries === undefined)
+          return;
+
         if (Array.isArray(entryOrEntries)) {
           entryOrEntries.forEach(
             (entry, order) => {
